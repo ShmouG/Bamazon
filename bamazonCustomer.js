@@ -85,7 +85,7 @@ function promptUserPurchase() {
 
 						console.log('Your oder has been placed! Your total is $' + productData.price * quantity);
 						console.log('Thank you for shopping with us!');
-						console.log("\n---------------------------------------------------------------------\n");
+						console.log("\n༼ つ ◕_◕ ༽つ༼ つ ◕_◕ ༽つ༼ つ ◕_◕ ༽つ༼ つ ◕_◕ ༽つ༼ つ ◕_◕ ༽つ༼ つ ◕_◕ ༽つ\n");
 
 						// End the database connection
 						connection.end();
@@ -93,7 +93,7 @@ function promptUserPurchase() {
 				} else {
 					console.log('Sorry, there is not enough product in stock, your order can not be placed as is.');
 					console.log('Please modify your order.');
-					console.log("\n---------------------------------------------------------------------\n");
+					console.log("\n --------------------------------------------------------\n");
 
 					displayInventory();
 				}
@@ -127,7 +127,7 @@ function displayInventory() {
 			console.log(strOut);
 		}
 
-	  	console.log("---------------------------------------------------------------------\n");
+	  	console.log(" つ ◕_◕ ༽つ༼ つ ◕_◕ ༽つ༼ つ ◕_◕ ༽つ༼ つ ◕_◕ ༽つ༼ つ ◕_◕ ༽つ༼ つ ◕_◕ ༽つ\n");
 
 	  	//Prompt the user for item/quantity they would like to purchase
 	  	promptUserPurchase();
