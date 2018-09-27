@@ -1,3 +1,4 @@
+DROP DATABASE IF EXISTS Bamazon;
 CREATE DATABASE Bamazon;
 USE Bamazon;
 
