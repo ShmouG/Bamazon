@@ -1,6 +1,8 @@
 var request = require("request");
 var inquirer = require("inquirer");
 var mysql =  require("mysql");
+var Table = require('cli-table2');
+
 
 var connection = mysql.createConnection({
 	host: 'localhost',
@@ -24,6 +26,23 @@ function validateInput(value) {
 	} else {
 		return 'Please enter a whole non-zero number.';
 	}
+}
+function displayTable() {
+    connection.query('SELECT * FROM products', function(err, res) {
+        if (err) {console.log(err)};
+        let table = new Table({
+            head: ['Item ID', 'Product Name', 'Department Name', 'Price', 'Stock'],
+            colAligns: ['center', null, null, 'right', 'center'],
+            colWidths: [10, 30, 30, 16, 8]
+        });
+        for (i = 0; i < res.length; i++) {
+            table.push(
+                [res[i].item_id, res[i].product_name, res[i].department_name, res[i].price, res[i].stock_quantity]
+            );
+        }
+	console.log(table.toString());
+	console.log(" つ ◕_◕ ༽つ༼ つ ◕_◕ ༽つ༼ つ ◕_◕ ༽つ༼ つ ◕_◕ ༽つ༼ つ ◕_◕ ༽つ༼ つ ◕_◕ ༽つ\n");
+    });
 }
 
 // promptUserPurchase will prompt the user for the item/quantity they would like to purchase
@@ -127,7 +146,7 @@ function displayInventory() {
 			console.log(strOut);
 		}
 
-	  	console.log(" つ ◕_◕ ༽つ༼ つ ◕_◕ ༽つ༼ つ ◕_◕ ༽つ༼ つ ◕_◕ ༽つ༼ つ ◕_◕ ༽つ༼ つ ◕_◕ ༽つ\n");
+	  	
 
 	  	//Prompt the user for item/quantity they would like to purchase
 	  	promptUserPurchase();
@@ -139,7 +158,7 @@ function runBamazon() {
 	// console.log('___ENTER runBamazon___');
 
 	// Display the available inventory
-	displayInventory();
+	displayTable();
 }
 
 // Run the application logic
