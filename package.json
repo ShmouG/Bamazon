@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "main": "bamazonCustomer.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -21,7 +23,9 @@
     "inquirer": "^6.2.0",
     "mysql": "^2.16.0",
     "nodemon": "^1.18.4",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "snyk": "^1.130.0"
   },
-  "description": ""
+  "description": "",
+  "snyk": true
 }
